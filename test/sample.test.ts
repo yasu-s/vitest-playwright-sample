@@ -28,7 +28,7 @@ describe('sample', async () => {
     // verify
     const title = await page.title()
     expect(title).toBe('Vitest Test Page')
-  }, 60_000)
+  })
 
   test('pagetitle', async () => {
     // setup
@@ -37,5 +37,5 @@ describe('sample', async () => {
     // verify
     const pagetitle = page.locator('#pagetitle')
     await expect(pagetitle).toHaveText('Vitest Test')
-  }, 60_000)
+  })
 })
