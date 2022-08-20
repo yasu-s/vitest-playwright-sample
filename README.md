@@ -1,2 +1,10 @@
 # vitest-playwright-sample
-Vitest + Playwright
+
+## 概要
+
+- Vitest + Playwright のサンプルソースです。
+
+## 参考 URL
+
+- https://vitest.dev/guide/#examples
+- https://playwright.dev/

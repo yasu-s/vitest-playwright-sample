@@ -1,0 +1,17 @@
+{
+  "name": "vitest-playwright-sample",
+  "private": true,
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.25.0",
+    "playwright": "^1.25.0",
+    "vite": "^3.0.9",
+    "vitest": "^0.22.1"
+  },
+  "volta": {
+    "node": "18.7.0",
+    "yarn": "1.22.19"
+  }
+}
