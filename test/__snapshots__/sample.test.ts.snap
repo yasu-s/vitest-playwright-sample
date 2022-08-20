@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`sample > title > aaa 1`] = `
+exports[`sample > title 1`] = `
 "<!DOCTYPE html><html><head>
   <meta charset=\\"utf-8\\">
   <title>Vitest Test Page</title>

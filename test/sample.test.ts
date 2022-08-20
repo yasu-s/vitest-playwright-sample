@@ -2,6 +2,17 @@ import { afterAll, beforeAll, describe, test, expect } from 'vitest'
 import { preview, PreviewServer } from 'vite'
 import { chromium, Browser, Page } from 'playwright'
 import { expect as expectEx } from '@playwright/test'
+import { toMatchImageSnapshot } from 'jest-image-snapshot'
+
+declare global {
+  namespace jest {
+    interface Matchers<R> {
+      toMatchImageSnapshot(): R
+    }
+  }
+}
+
+expect.extend({ toMatchImageSnapshot })
 
 describe('sample', async () => {
   let server: PreviewServer
@@ -27,7 +38,8 @@ describe('sample', async () => {
 
     // verify
     const title = await page.title()
-    expect(await page.content()).toMatchSnapshot('aaa')
+    expect(await page.content()).toMatchSnapshot()
+    expect(await page.screenshot()).toMatchImageSnapshot()
     expect(title).toBe('Vitest Test Page')
   })
 
@@ -39,5 +51,6 @@ describe('sample', async () => {
     const pagetitle = page.locator('#pagetitle')
     expect(await pagetitle.innerText()).toBe('Vitest Test')
     await expectEx(pagetitle).toHaveText('Vitest Test')
+    expect(await page.screenshot()).toMatchImageSnapshot()
   })
 })

@@ -6,6 +6,8 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.25.0",
+    "@types/jest-image-snapshot": "^5.1.0",
+    "jest-image-snapshot": "^5.1.0",
     "playwright": "^1.25.0",
     "vite": "^3.0.9",
     "vitest": "^0.22.1"
