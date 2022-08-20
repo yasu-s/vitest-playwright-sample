@@ -1,7 +1,7 @@
-import { afterAll, beforeAll, describe, test } from 'vitest'
+import { afterAll, beforeAll, describe, test, expect } from 'vitest'
 import { preview, PreviewServer } from 'vite'
 import { chromium, Browser, Page } from 'playwright'
-import { expect } from '@playwright/test'
+import { expect as expectEx } from '@playwright/test'
 
 describe('sample', async () => {
   let server: PreviewServer
@@ -27,6 +27,7 @@ describe('sample', async () => {
 
     // verify
     const title = await page.title()
+    expect(await page.content()).toMatchSnapshot('aaa')
     expect(title).toBe('Vitest Test Page')
   })
 
@@ -36,6 +37,7 @@ describe('sample', async () => {
 
     // verify
     const pagetitle = page.locator('#pagetitle')
-    await expect(pagetitle).toHaveText('Vitest Test')
+    expect(await pagetitle.innerText()).toBe('Vitest Test')
+    await expectEx(pagetitle).toHaveText('Vitest Test')
   })
 })
